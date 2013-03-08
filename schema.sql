@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Mar 07, 2013 alle 23:49
+-- Generato il: Mar 08, 2013 alle 13:57
 -- Versione del server: 5.5.27
 -- Versione PHP: 5.4.7
 
@@ -44,7 +44,22 @@ CREATE TABLE IF NOT EXISTS `delivery` (
 CREATE TABLE IF NOT EXISTS `edge` (
   `a` varchar(100) NOT NULL,
   `b` varchar(100) NOT NULL,
-  PRIMARY KEY (`a`,`b`)
+  KEY `a` (`a`,`b`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+  `src` varchar(100) NOT NULL,
+  `dst` varchar(100) NOT NULL,
+  `created` int(11) NOT NULL,
+  `received` int(11) NOT NULL,
+  `optimal` int(11) NOT NULL,
+  PRIMARY KEY (`src`,`dst`,`created`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `src` varchar(100) NOT NULL,
   `created` int(11) NOT NULL,
   `available` int(11) NOT NULL,
+  `pending` int(11) NOT NULL,
   PRIMARY KEY (`src`,`created`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
