@@ -12,3 +12,13 @@ for i in range(50):
             res = cursor.execute(x)
             print(res)
             db.commit()
+            
+sql = open('collect.sql').read().split('\n')
+for x in sql:
+    if len(x) > 0 and x[0] != '#':
+        print(x)
+        res = cursor.execute(x)
+        print(res)
+        db.commit()
+            
+
